@@ -2,13 +2,13 @@ use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Copy, Clone, Deserialize, Serialize, PartialEq)]
+#[derive(Copy, Clone, Deserialize, Serialize, PartialEq, Debug)]
 pub enum RequestResultErrorKind {
     InternalFailure,
     MalformedRequest,
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct RequestResultError {
     kind: RequestResultErrorKind,
     message: String,
@@ -24,6 +24,10 @@ impl RequestResultError {
 
     pub fn kind(&self) -> RequestResultErrorKind {
         self.kind
+    }
+
+    pub fn message(&self) -> &str {
+        &self.message
     }
 }
 
