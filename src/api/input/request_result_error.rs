@@ -2,7 +2,7 @@ use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Copy, Clone, Deserialize, Serialize)]
+#[derive(Copy, Clone, Deserialize, Serialize, PartialEq)]
 pub enum RequestResultErrorKind {
     InternalFailure,
     MalformedRequest,
